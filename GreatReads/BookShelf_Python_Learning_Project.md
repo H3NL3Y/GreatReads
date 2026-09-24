@@ -20,7 +20,7 @@ Do **not** use Flask yet.
 
 The application should allow you to:
 
-1. Add a book
+1. Add a book - Need to add it to JSON. 
 2. List books
 3. Search books
 4. Add a rating
