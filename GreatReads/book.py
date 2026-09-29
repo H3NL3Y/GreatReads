@@ -46,20 +46,8 @@ class book():
         book1.book_to_dict()
         book1.WriteToFile()
         
-if __name__ == "__main__":
-    menu = input("""
-                 1. Add new book
-                 2. View all books
-                 3. Exit
-                 """)
-    if menu == "1":
-        newBook = book.addNewBook()
-    elif menu == "2":
-        with open(BOOKS_FILE, "r") as file:
-            for line in file:
-                print(line)
-    elif menu == "3":
-        exit()
+#if __name__ == "__main__":
+  
         
                  
                  
