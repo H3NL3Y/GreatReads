@@ -1,3 +1,26 @@
-{'title': 'The Hobbit', 'author': 'JRR Tolkien', 'pages': '310', 'published': '1937'}
-{'title': 'The Winter King', 'author': 'Bernard Cornwell', 'pages': '240', 'published': '2026'}
-{'title': 'Dune', 'author': 'Frank Herbert', 'pages': '412', 'published': '1965'}
+[
+    {
+        "title": "The Hobbit",
+        "author": "JRR Tolkien",
+        "pages": "310",
+        "published": "1937"
+    },
+    {
+        "title": "The Winter King",
+        "author": "Bernard Cornwell",
+        "pages": "240",
+        "published": "2026"
+    },
+    {
+        "title": "Dune",
+        "author": "Frank Herbert",
+        "pages": "412",
+        "published": "1965"
+    },
+    {
+        "title": "Dungeon Crawler Carl",
+        "author": "Matt Dimmons",
+        "pages": "390",
+        "published": "2012"
+    }
+]

@@ -1,8 +1,22 @@
 #GoodReads Clone
 import os
+import json
 
 #Finds books.json next to this file, no matter which folder the program is run from.
 BOOKS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "books.json")
+
+def loadBooks():
+    #Returns the list of book dicts from books.json, or an empty list if the file is missing/empty.
+    if not os.path.exists(BOOKS_FILE) or os.path.getsize(BOOKS_FILE) == 0:
+        return []
+    with open(BOOKS_FILE, "r") as file:
+        return json.load(file)
+    print json.load(file[1])
+
+def saveBooks(books):
+    #Overwrites books.json with the full list of book dicts.
+    with open(BOOKS_FILE, "w") as file:
+        json.dump(books, file, indent=4)
 
 class book():
     def __init__(self,title,author,pages,published):
@@ -30,8 +44,10 @@ class book():
         
     
     def WriteToFile(self):
-        with open(BOOKS_FILE, "a") as file:
-            file.write(str(self.book_to_dict()) + "\n")
+        #Loads the existing books, adds this one, and saves the list back.
+        books = loadBooks()
+        books.append(self.book_to_dict())
+        saveBooks(books)
 
 
 
@@ -45,15 +61,19 @@ class book():
         book1 = book(title,author,pages,published)
         book1.book_to_dict()
         book1.WriteToFile()
-        
-#if __name__ == "__main__":
-  
-        
-                 
-                 
 
+    def searchBooks():
+        #Finds books whose title contains the search term (case-insensitive).
+        term = input("Enter part of the title: ").strip().lower()
+        matches = [book(**data) for data in loadBooks() if term in data["title"].lower()]
 
+        if matches:
+            print(f"\nFound {len(matches)} match(es):\n")
+            for match in matches:
+                print(match.displayBooks() + "\n")
+        else:
+            print("No books found matching that title.")
 
-#TODO: Create menu system on main. 
+        return matches
+
 #TODO: Allow user to enter rating.
-#TODO: Store book details in JSON within the dict format.
